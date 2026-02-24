@@ -372,6 +372,224 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   line-height: 1.4;
 }
 
+/* ── INDUSTRY SECTORS ───────────────────────────────────────── */
+.about__sectors {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+}
+.about__sectors-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.sector-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.sector-tile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+}
+.sector-tile:hover {
+  border-color: var(--border-accent);
+  background: var(--accent-blue-lo);
+  transform: translateY(-2px);
+}
+.sector-tile svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke: var(--accent-blue);
+  opacity: 0.7;
+}
+.sector-tile:hover svg {
+  opacity: 1;
+}
+.sector-tile__label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+.sector-tile__sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+@media (max-width: 639px) {
+  .sector-tiles { gap: 8px; }
+  .sector-tile { padding: 8px 12px; }
+}
+
+/* ── MY APPROACH ─────────────────────────────────────────────── */
+.approach__content {
+  max-width: 780px;
+}
+.approach__manifesto p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.approach__manifesto p:last-child { margin-bottom: 0; }
+.approach__manifesto strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ── CURRENT FOCUS ──────────────────────────────────────────── */
+.focus__intro {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  font-style: italic;
+}
+.focus__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .focus__grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+}
+.focus__card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.focus__card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(14, 165, 233, 0.08);
+}
+.focus__card--featured {
+  border-color: rgba(14, 165, 233, 0.2);
+}
+.focus__card--featured::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold), var(--accent-blue));
+  background-size: 200% 100%;
+  animation: focusGradient 4s linear infinite;
+}
+@keyframes focusGradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.focus__card-glow {
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  width: 140%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.focus__card-inner {
+  position: relative;
+  padding: 32px 28px;
+  z-index: 1;
+}
+.focus__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-blue-lo);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+}
+.focus__icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent-blue);
+}
+.focus__icon--gold {
+  background: var(--accent-gold-lo);
+  border-color: rgba(212, 175, 55, 0.25);
+}
+.focus__icon--gold svg {
+  stroke: var(--accent-gold);
+}
+.focus__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+.focus__desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.focus__signal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.focus__pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 8px rgba(14, 165, 233, 0.6);
+  animation: focusPulse 2s ease-in-out infinite;
+}
+.focus__pulse--gold {
+  background: var(--accent-gold);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
+@keyframes focusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.focus__status {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ── ACHIEVEMENT IMPACT ─────────────────────────────────────── */
+.achievement-card__impact {
+  font-size: 0.8rem;
+  color: var(--accent-blue);
+  line-height: 1.6;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  opacity: 0.85;
+}
+.achievement-card__impact-label {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent-gold);
+}
+
 /* ── EXPERIENCE / TIMELINE ───────────────────────────────────── */
 .timeline {
   position: relative;
@@ -957,13 +1175,15 @@ a.contact-card:hover {
 .achievement-card,
 .competency-group,
 .stat-card,
-.contact-card {
+.contact-card,
+.focus__card {
   overflow: hidden;
 }
 
 .achievement-card::after,
 .competency-group::after,
-.stat-card::after {
+.stat-card::after,
+.focus__card::after {
   content: '';
   position: absolute;
   top: 0;
@@ -983,6 +1203,7 @@ a.contact-card:hover {
 .achievement-card:hover::after { left: 130%; }
 .competency-group:hover::after  { left: 130%; }
 .stat-card:hover::after         { left: 130%; }
+.focus__card:hover::after       { left: 130%; }
 
 /* ── METRIC BARS in achievement cards ─────────────────────────── */
 .metric-bar {
@@ -1159,14 +1380,14 @@ a.contact-card:hover {
   stroke: none;
 }
 
-/* Phone — teal */
+/* Telegram — teal */
 .contact-card__icon--teal {
   background: rgba(20, 184, 166, .1);
   border-color: rgba(20, 184, 166, .28);
 }
 .contact-card__icon--teal svg {
-  stroke: #14b8a6;
-  fill: none;
+  fill: #14b8a6;
+  stroke: none;
 }
 
 /* Location — gold */
