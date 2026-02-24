@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    background: #090d16;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #f0f4fc;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ── BACKGROUND LAYERS ── */
+  .bg-radial {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 65% 80% at 10% 55%, rgba(14,165,233,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse 45% 55% at 88% 18%, rgba(212,175,55,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 35% 45% at 85% 85%, rgba(14,165,233,0.05) 0%, transparent 55%);
+  }
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(14,165,233,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14,165,233,0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  /* faint vignette so edges feel deep */
+  .bg-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 110% 110% at 50% 50%, transparent 50%, rgba(9,13,22,0.55) 100%);
+  }
+
+  /* ── LEFT ACCENT BAR ── */
+  .accent-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, #0ea5e9 0%, #d4af37 60%, transparent 100%);
+  }
+
+  /* ── CONTENT WRAPPER ── */
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 56px 72px 52px 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* ── TOP ROW ── */
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #f0f4fc;
+  }
+  .logo-dot { color: #0ea5e9; }
+  .location-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(14,165,233,0.10);
+    border: 1px solid rgba(14,165,233,0.28);
+    color: #0ea5e9;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    border-radius: 100px;
+  }
+  .location-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #0ea5e9;
+    box-shadow: 0 0 6px rgba(14,165,233,0.8);
+  }
+
+  /* ── MAIN IDENTITY ── */
+  .identity { padding: 8px 0; }
+  .name {
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin-bottom: 18px;
+  }
+  .name-accent { color: #0ea5e9; }
+  .title-line {
+    font-size: 1.08rem;
+    color: rgba(240,244,252,0.48);
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .title-sep { color: rgba(14,165,233,0.45); margin: 0 10px; }
+
+  /* ── STATS ROW ── */
+  .stats {
+    display: flex;
+    gap: 14px;
+    margin-top: 36px;
+  }
+  .stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 16px 22px 14px;
+    min-width: 0;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1.5px;
+    background: linear-gradient(90deg, #0ea5e9, transparent);
+  }
+  .stat--gold::before {
+    background: linear-gradient(90deg, #d4af37, transparent);
+  }
+  .stat__num {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #f0f4fc;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  .stat__num .suf { color: #0ea5e9; }
+  .stat__num .suf-gold { color: #d4af37; }
+  .stat__label {
+    font-size: 0.62rem;
+    color: rgba(255,255,255,0.3);
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+
+  /* ── BOTTOM ROW ── */
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .company-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .company-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-right: 12px;
+  }
+  .chip-icon {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #d4af37;
+    flex-shrink: 0;
+  }
+  .chip-icon--blue { background: #0ea5e9; }
+  .company-chip span {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: rgba(240,244,252,0.65);
+    white-space: nowrap;
+  }
+  .url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(14,165,233,0.55);
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-radial"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-vignette"></div>
+  <div class="accent-bar"></div>
+
+  <div class="content">
+    <!-- TOP -->
+    <div class="top">
+      <div class="logo">AI<span class="logo-dot">.</span></div>
+      <div class="location-badge">
+        <div class="location-dot"></div>
+        Abu Dhabi, UAE
+      </div>
+    </div>
+
+    <!-- IDENTITY -->
+    <div class="identity">
+      <div class="name">Alexei <span class="name-accent">Ivanov</span></div>
+      <div class="title-line">
+        Head of IT &amp; Digital
+        <span class="title-sep">|</span>
+        CFO-Facing Technology Executive
+        <span class="title-sep">|</span>
+        CYVN Holdings
+      </div>
+      <!-- STATS -->
+      <div class="stats">
+        <div class="stat">
+          <div class="stat__num">20<span class="suf">+</span></div>
+          <div class="stat__label">Years IT Leadership</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">D365</div>
+          <div class="stat__label">F&amp;O ERP Go-Live 2025</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">~97<span class="suf">%</span></div>
+          <div class="stat__label">Payment Automation</div>
+        </div>
+        <div class="stat stat--gold">
+          <div class="stat__num">28<span class="suf-gold">%</span></div>
+          <div class="stat__label">AI Productivity Gains</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">AED 2<span class="suf">M</span></div>
+          <div class="stat__label">Annual IT Budget</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="bottom">
+      <div class="company-row">
+        <div class="company-chip">
+          <div class="chip-icon chip-icon--blue"></div>
+          <span>CYVN Holdings</span>
+        </div>
+        <div class="company-chip">
+          <div class="chip-icon"></div>
+          <span>McLaren &amp; NIO Ecosystem</span>
+        </div>
+        <div class="company-chip">
+          <div class="chip-icon chip-icon--blue"></div>
+          <span>Zero Trust · ICFR · Azure</span>
+        </div>
+      </div>
+      <div class="url">aivanov.ai</div>
+    </div>
+  </div>
+</body>
+</html>
