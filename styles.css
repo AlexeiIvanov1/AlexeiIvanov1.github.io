@@ -330,6 +330,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (min-width: 900px) {
   .about__grid { grid-template-columns: 1fr 340px; gap: 80px; }
 }
+/* prevent grid children from overflowing their tracks */
+.about__bio,
+.about__stats { min-width: 0; }
 .about__bio p {
   font-size: 1.05rem;
   color: var(--text-secondary);
@@ -785,4 +788,488 @@ a.contact-card:hover {
   }
   .hero__scroll-indicator span { animation: none; }
   *, *::before, *::after { transition: none !important; }
+}
+/* ═══════════════════════════════════════════════════════════════
+   STYLES-V2.CSS  —  Dynamic effect layer (loaded AFTER styles.css)
+   Adds: neural canvas · glitch · shimmer · scan · pulse · ticker
+         metric bars · ripple · section scan · parallax tweaks
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── NEURAL CANVAS ─────────────────────────────────────────────── */
+.hero__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform .08s linear;
+}
+
+/* remove old SVG geo — canvas replaces it */
+.hero__geo { display: none; }
+
+/* slightly tighten the hero radial overlay so canvas shows more */
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 75% 65% at 50% 50%,
+    transparent 30%,
+    rgba(9, 13, 22, .72) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── HERO CONTENT sits above canvas ────────────────────────────── */
+.hero__content {
+  z-index: 3;
+}
+
+/* ── GLITCH ANIMATION on hero name ─────────────────────────────── */
+@keyframes glitch {
+  0%, 85%, 100% {
+    text-shadow: none;
+    transform: none;
+    filter: none;
+  }
+  86% {
+    text-shadow:
+      -5px  0 0 rgba(255, 0, 80, .85),
+       5px  0 0 rgba(0, 210, 255, .85);
+    transform: translate(-3px, 0);
+    filter: brightness(1.25);
+  }
+  87% {
+    text-shadow:
+       5px  0 0 rgba(255, 0, 80, .7),
+      -3px  0 0 rgba(0, 210, 255, .7);
+    transform: translate(3px, 0);
+  }
+  88% {
+    text-shadow: none;
+    transform: translate(0, -1px);
+  }
+  89% {
+    text-shadow:
+      -2px  0 0 rgba(255, 0, 80, .45),
+       2px  0 0 rgba(0, 210, 255, .45);
+    transform: translate(1px, 0);
+  }
+  90% {
+    text-shadow: none;
+    transform: none;
+  }
+}
+
+.hero__name {
+  animation: glitch 11s ease-in-out infinite;
+}
+
+/* ── HERO TICKER ────────────────────────────────────────────────── */
+.hero__ticker-wrap {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-top: 1.5rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: .72rem;
+  letter-spacing: .06em;
+}
+
+.hero__ticker-label {
+  color: var(--accent-blue);
+  opacity: .6;
+  flex-shrink: 0;
+}
+
+#heroTicker {
+  color: rgba(255, 255, 255, .4);
+  transition: opacity .35s ease, transform .35s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 55ch;
+}
+
+/* ── SCAN LINE on hero — very subtle ambient pass ──────────────── */
+@keyframes scanLine {
+  0%   { top: 0%;   opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(14, 165, 233, .06) 25%,
+    rgba(14, 165, 233, .13) 50%,
+    rgba(14, 165, 233, .06) 75%,
+    transparent 100%
+  );
+  z-index: 4;
+  pointer-events: none;
+  animation: scanLine 18s linear infinite;
+}
+
+/* ── PULSING TIMELINE DOTS ─────────────────────────────────────── */
+@keyframes rippleRing {
+  0%   { transform: translate(-50%, -50%) scale(1); opacity: .6; }
+  100% { transform: translate(-50%, -50%) scale(3.2); opacity: 0; }
+}
+
+.timeline__dot {
+  position: relative;
+  overflow: visible;
+}
+.timeline__dot::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  pointer-events: none;
+  animation: rippleRing 2.4s ease-out infinite;
+}
+.timeline__dot::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  pointer-events: none;
+  animation: rippleRing 2.4s ease-out infinite .8s;
+}
+
+/* ── SHIMMER on cards (hover sweep) ────────────────────────────── */
+.achievement-card,
+.competency-group,
+.stat-card,
+.contact-card {
+  overflow: hidden;
+}
+
+.achievement-card::after,
+.competency-group::after,
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, .04) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  transition: left .65s ease;
+}
+
+.achievement-card:hover::after { left: 130%; }
+.competency-group:hover::after  { left: 130%; }
+.stat-card:hover::after         { left: 130%; }
+
+/* ── METRIC BARS in achievement cards ─────────────────────────── */
+.metric-bar {
+  height: 2px;
+  background: rgba(255, 255, 255, .06);
+  border-radius: 1px;
+  margin-top: .6rem;
+  overflow: hidden;
+}
+
+.metric-bar__fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-blue) 0%,
+    rgba(14, 165, 233, .8) 60%,
+    var(--accent-gold) 100%
+  );
+  transition: width 1.6s cubic-bezier(.25, 1, .5, 1);
+}
+
+.achievement-card__icon--gold ~ .achievement-card__body .metric-bar__fill {
+  background: linear-gradient(
+    90deg,
+    var(--accent-gold) 0%,
+    rgba(212, 175, 55, .8) 60%,
+    var(--accent-blue) 100%
+  );
+}
+
+/* ── RIPPLE DOT (JS injected on card hover) ─────────────────────── */
+@keyframes rippleFade {
+  0%   { transform: translate(-50%, -50%) scale(0); opacity: .35; }
+  100% { transform: translate(-50%, -50%) scale(5); opacity: 0; }
+}
+
+.ripple-dot {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(14, 165, 233, .18);
+  pointer-events: none;
+  animation: rippleFade .65s ease-out forwards;
+}
+
+/* ── SECTION HEADER SCAN ──────────────────────────────────────── */
+@keyframes scanH {
+  0%   { transform: scaleX(0); opacity: 0; }
+  15%  { opacity: 1; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+.section__header {
+  position: relative;
+}
+.section__header::after {
+  content: '';
+  position: absolute;
+  bottom: -.75rem;
+  left: 0;
+  width: 48px;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: none;
+}
+.section__header.scan-active::after {
+  animation: scanH .9s ease-out .15s forwards;
+}
+
+/* ── ACTIVE NAV LINK ────────────────────────────────────────────── */
+.nav__links a.active {
+  color: var(--accent-blue);
+  background: rgba(14, 165, 233, .08);
+  border-radius: 4px;
+}
+
+/* ── ENHANCED TIMELINE CARD hover glow ─────────────────────────── */
+.timeline__card {
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.timeline__card:hover {
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, .15),
+              0 8px 32px rgba(14, 165, 233, .06);
+}
+
+/* ── ENHANCED ACHIEVEMENT CARD hover ───────────────────────────── */
+.achievement-card {
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.achievement-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(14, 165, 233, .08);
+}
+
+/* ── ENHANCED COMPETENCY GROUP hover ──────────────────────────── */
+.competency-group {
+  transition: transform .25s ease, border-color .25s ease;
+}
+.competency-group:hover {
+  transform: translateY(-1px);
+}
+
+/* ── HERO VALUE bold words glow ────────────────────────────────── */
+.hero__value strong {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: rgba(14, 165, 233, .3);
+  text-underline-offset: 3px;
+}
+
+/* ── STAT CARD subtle glow on hover ────────────────────────────── */
+.stat-card {
+  position: relative; /* required so ::after shimmer clips to the card */
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.stat-card:hover {
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, .25),
+              0 6px 20px rgba(14, 165, 233, .07);
+}
+
+/* ── CONTACT CARDS layout — all 4 in one row ───────────────────── */
+.contact__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .contact__cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .contact__cards { grid-template-columns: 1fr; }
+}
+
+/* ── CONTACT CARD hover glow ───────────────────────────────────── */
+.contact-card {
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+.contact-card:not(.contact-card--static):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(14, 165, 233, .07);
+}
+
+/* prevent any value text from overflowing its card */
+.contact-card__body {
+  min-width: 0;
+}
+.contact-card__value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── CONTACT CARD icon colours ─────────────────────────────────── */
+
+/* Email — sky blue */
+.contact-card__icon--blue {
+  background: rgba(14, 165, 233, .1);
+  border-color: rgba(14, 165, 233, .28);
+}
+.contact-card__icon--blue svg {
+  stroke: #0ea5e9;
+  fill: none;
+}
+/* LinkedIn SVG uses fill not stroke — keep it filled */
+.contact-card__icon--blue svg[fill="currentColor"] {
+  fill: #0ea5e9;
+  stroke: none;
+}
+
+/* Phone — teal */
+.contact-card__icon--teal {
+  background: rgba(20, 184, 166, .1);
+  border-color: rgba(20, 184, 166, .28);
+}
+.contact-card__icon--teal svg {
+  stroke: #14b8a6;
+  fill: none;
+}
+
+/* Location — gold */
+.contact-card__icon--gold {
+  background: rgba(212, 175, 55, .1);
+  border-color: rgba(212, 175, 55, .28);
+}
+.contact-card__icon--gold svg {
+  stroke: #d4af37;
+  fill: none;
+}
+
+/* ── BUTTONS enhanced glow ─────────────────────────────────────── */
+.btn--primary:hover {
+  box-shadow: 0 0 28px rgba(14, 165, 233, .4),
+              0 6px 20px rgba(14, 165, 233, .25);
+}
+.btn--secondary:hover {
+  box-shadow: 0 0 16px rgba(14, 165, 233, .2);
+}
+
+/* ── FOOTER glow line ──────────────────────────────────────────── */
+.footer {
+  border-top: 1px solid rgba(14, 165, 233, .15);
+  position: relative;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(14, 165, 233, .5) 30%,
+    rgba(212, 175, 55, .4) 70%,
+    transparent 100%
+  );
+}
+
+/* ── HERO SCROLL INDICATOR ─────────────────────────────────────── */
+.hero__scroll-indicator span {
+  background: linear-gradient(
+    to bottom,
+    var(--accent-blue),
+    var(--accent-gold),
+    transparent
+  );
+}
+
+/* ── SCROLL NAV BUTTON ─────────────────────────────────────────── */
+.scroll-nav {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 900;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(14, 165, 233, .32);
+  background: rgba(9, 13, 22, .75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #0ea5e9;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity .3s ease,
+    transform .3s ease,
+    border-color .25s,
+    box-shadow .25s;
+  pointer-events: none;
+}
+
+.scroll-nav.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-nav:hover {
+  border-color: rgba(14, 165, 233, .7);
+  box-shadow:
+    0 0 20px rgba(14, 165, 233, .25),
+    0 0 6px  rgba(14, 165, 233, .15),
+    inset 0 0 12px rgba(14, 165, 233, .06);
+}
+
+.scroll-nav__icon {
+  transition: transform .4s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.scroll-nav.at-top .scroll-nav__icon {
+  transform: rotate(180deg);
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  #heroTicker { display: none; }
+  .hero__ticker-wrap { display: none; }
+  .scroll-nav { bottom: 1.25rem; right: 1.25rem; }
 }
