@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexei Ivanov — CV</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F5RWMWG06Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F5RWMWG06Z');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #111111;
+      --ink-2:     #444444;
+      --ink-3:     #888888;
+      --rule:      #dddddd;
+      --sidebar-bg:#f3f4f6;
+      --page-bg:   #ffffff;
+      --accent:    #1c3a5e;
+      --page-w:    960px;
+      --font:      'Inter', system-ui, sans-serif;
+      --mono:      'JetBrains Mono', monospace;
+    }
+
+    html { font-size: 14px; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font);
+      background: #e8eaed;
+      color: var(--ink-2);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── TOOLBAR ─────────────────────────────────────────────── */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 24px;
+      height: 44px;
+      font-size: 0.78rem;
+      print-color-adjust: exact;
+    }
+
+    .toolbar__back {
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .toolbar__back:hover { color: #fff; }
+
+    .toolbar__sep { width: 1px; height: 18px; background: rgba(255,255,255,0.15); }
+
+    .toolbar__spacer { flex: 1; }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 2px;
+      gap: 1px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.55);
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
+    .lang-btn.active { background: rgba(255,255,255,0.18); color: #fff; }
+
+    .toolbar__print {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      color: rgba(255,255,255,0.8);
+      font-family: var(--font);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .toolbar__print:hover { background: rgba(255,255,255,0.18); color: #fff; }
+    .toolbar__print svg { flex-shrink: 0; }
+
+    /* ── PAGE WRAPPER ────────────────────────────────────────── */
+    .page-wrap {
+      max-width: var(--page-w);
+      margin: 28px auto 48px;
+      background: var(--page-bg);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.14), 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    /* ── CV HEADER ───────────────────────────────────────────── */
+    .cv-header {
+      padding: 36px 40px 28px;
+      border-bottom: 2px solid var(--ink);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .cv-header__name h1 {
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .cv-header__name h1 strong {
+      font-weight: 700;
+    }
+
+    .cv-header__title {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-2);
+      margin-top: 8px;
+      letter-spacing: 0.01em;
+      line-height: 1.5;
+      max-width: 480px;
+    }
+
+    .cv-header__contact {
+      text-align: right;
+      font-size: 0.75rem;
+      color: var(--ink-3);
+      line-height: 1.9;
+      flex-shrink: 0;
+    }
+    .cv-header__contact a { color: var(--ink-3); }
+    .cv-header__contact a:hover { color: var(--ink); }
+
+    /* ── TWO-COLUMN BODY ─────────────────────────────────────── */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      min-height: 900px;
+    }
+
+    /* ── SIDEBAR ─────────────────────────────────────────────── */
+    .cv-sidebar {
+      background: var(--sidebar-bg);
+      padding: 28px 22px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .cv-sidebar__section {
+      margin-bottom: 26px;
+    }
+
+    .cv-section-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+    }
+
+    .cv-sidebar__item {
+      font-size: 0.78rem;
+      color: var(--ink-2);
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    .cv-sidebar__item strong {
+      display: block;
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 0.8rem;
+    }
+
+    .cv-sidebar__item .sub {
+      font-size: 0.72rem;
+      color: var(--ink-3);
+    }
+
+    .cv-sidebar__contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      font-size: 0.76rem;
+      color: var(--ink-2);
+      margin-bottom: 7px;
+      line-height: 1.4;
+    }
+    .cv-sidebar__contact-row svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: var(--ink-3);
+    }
+
+    .cv-lang-row {
+      font-size: 0.77rem;
+      color: var(--ink-2);
+      padding: 4px 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cv-lang-row:last-child { border-bottom: none; }
+    .cv-lang-row span:first-child { font-weight: 500; color: var(--ink); }
+    .cv-lang-row span:last-child { font-size: 0.7rem; color: var(--ink-3); }
+
+    .cv-industry-list {
+      font-size: 0.76rem;
+      color: var(--ink-2);
+      line-height: 1.9;
+    }
+    .cv-industry-list li {
+      list-style: none;
+      padding-left: 10px;
+      position: relative;
+    }
+    .cv-industry-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--ink-3);
+    }
+
+    /* ── MAIN ────────────────────────────────────────────────── */
+    .cv-main {
+      padding: 28px 32px;
+    }
+
+    /* ── MAIN SECTION ─────────────────────────────────────────── */
+    .cv-main__section {
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .cv-main__section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .cv-main__label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 5px;
+      margin-bottom: 14px;
+    }
+
+    /* Profile */
+    .cv-profile p {
+      font-size: 0.83rem;
+      color: var(--ink-2);
+      line-height: 1.7;
+    }
+
+    /* Experience */
+    .cv-job { margin-bottom: 18px; }
+    .cv-job:last-child { margin-bottom: 0; }
+
+    .cv-job__header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+
+    .cv-job__role {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .cv-job__period {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--ink-3);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cv-job__company {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink-3);
+      margin-bottom: 6px;
+    }
+
+    .cv-job__desc {
+      font-size: 0.78rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+
+    .cv-job__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 7px;
+    }
+
+    .cv-job__tag {
+      font-size: 0.63rem;
+      font-family: var(--mono);
+      font-weight: 500;
+      color: var(--ink-3);
+      background: var(--sidebar-bg);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 2px 7px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Achievements */
+    .cv-ach { margin-bottom: 14px; display: flex; gap: 14px; align-items: flex-start; }
+    .cv-ach:last-child { margin-bottom: 0; }
+
+    .cv-ach__metric {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      min-width: 90px;
+      padding-top: 1px;
+    }
+
+    .cv-ach__body { flex: 1; }
+    .cv-ach__title {
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .cv-ach__desc {
+      font-size: 0.76rem;
+      color: var(--ink-2);
+      line-height: 1.6;
+    }
+
+    /* Competencies */
+    .cv-comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 24px;
+    }
+
+    .cv-comp-group__title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 5px;
+      letter-spacing: 0.01em;
+    }
+
+    .cv-comp-list {
+      list-style: none;
+    }
+    .cv-comp-list li {
+      font-size: 0.72rem;
+      color: var(--ink-2);
+      line-height: 1.7;
+      padding-left: 10px;
+      position: relative;
+    }
+    .cv-comp-list li::before {
+      content: '·';
+      position: absolute;
+      left: 2px;
+      color: var(--ink-3);
+    }
+
+    /* ── RTL ─────────────────────────────────────────────────── */
+    [dir="rtl"] .cv-body { grid-template-columns: 1fr 230px; }
+    [dir="rtl"] .cv-sidebar { border-right: none; border-left: 1px solid var(--rule); }
+    [dir="rtl"] .cv-header { flex-direction: row-reverse; }
+    [dir="rtl"] .cv-header__contact { text-align: left; }
+    [dir="rtl"] .cv-header__title { max-width: none; }
+    [dir="rtl"] .cv-job__header { flex-direction: row-reverse; }
+    [dir="rtl"] .cv-ach { flex-direction: row-reverse; }
+    [dir="rtl"] .cv-ach__metric { text-align: left; }
+    [dir="rtl"] .cv-sidebar__contact-row { flex-direction: row-reverse; text-align: right; }
+    [dir="rtl"] .cv-lang-row { flex-direction: row-reverse; }
+    [dir="rtl"] .cv-industry-list li { padding-left: 0; padding-right: 10px; }
+    [dir="rtl"] .cv-industry-list li::before { left: auto; right: 0; }
+    [dir="rtl"] .cv-comp-list li { padding-left: 0; padding-right: 10px; }
+    [dir="rtl"] .cv-comp-list li::before { left: auto; right: 2px; }
+    [dir="rtl"] .cv-sidebar__item { text-align: right; }
+    [dir="rtl"] .cv-section-label,
+    [dir="rtl"] .cv-main__label { text-align: right; }
+    [dir="rtl"] .cv-job__company,
+    [dir="rtl"] .cv-job__desc,
+    [dir="rtl"] .cv-ach__desc,
+    [dir="rtl"] .cv-profile p { text-align: right; }
+
+    /* ── PRINT ───────────────────────────────────────────────── */
+    @media print {
+      body { background: white; }
+      .toolbar { display: none; }
+      .page-wrap { box-shadow: none; margin: 0; max-width: 100%; }
+      .cv-body { min-height: auto; }
+      .cv-main__section { break-inside: avoid; }
+      .cv-job { break-inside: avoid; }
+      .cv-ach { break-inside: avoid; }
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .page-wrap { margin: 0; box-shadow: none; }
+      .cv-body { grid-template-columns: 1fr; }
+      .cv-sidebar { border-right: none; border-bottom: 1px solid var(--rule); }
+      .cv-header { flex-direction: column; align-items: flex-start; }
+      .cv-header__contact { text-align: left; }
+      .cv-comp-grid { grid-template-columns: 1fr; }
+      [dir="rtl"] .cv-body { grid-template-columns: 1fr; }
+      [dir="rtl"] .cv-sidebar { border-left: none; border-bottom: 1px solid var(--rule); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <a href="index.html" class="toolbar__back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      <span data-i18n="cv_back">← Back to site</span>
+    </a>
+    <div class="toolbar__sep"></div>
+    <div class="toolbar__spacer"></div>
+    <div class="lang-switcher" aria-label="Language">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+    <button class="toolbar__print" onclick="window.print()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      <span data-i18n="cv_print">Print / Save PDF</span>
+    </button>
+  </div>
+
+  <!-- CV Document -->
+  <div class="page-wrap">
+
+    <!-- Header -->
+    <header class="cv-header">
+      <div class="cv-header__name">
+        <h1>Alexei <strong>Ivanov</strong></h1>
+        <p class="cv-header__title" data-i18n="hero_title">Head of IT &amp; Digital | CFO-Facing Technology Executive | IT Governance for High-Growth Organizations</p>
+      </div>
+      <div class="cv-header__contact">
+        <a href="mailto:ai@aivanov.ai">ai@aivanov.ai</a><br/>
+        <a href="https://t.me/alexeiivanov" target="_blank" rel="noopener">t.me/alexeiivanov</a><br/>
+        <a href="https://www.linkedin.com/in/1alexeiivanov/" target="_blank" rel="noopener">linkedin.com/in/1alexeiivanov</a><br/>
+        <span data-i18n="contact_loc_value">Abu Dhabi, UAE</span>
+      </div>
+    </header>
+
+    <!-- Body -->
+    <div class="cv-body">
+
+      <!-- Sidebar -->
+      <aside class="cv-sidebar">
+
+        <!-- Education -->
+        <div class="cv-sidebar__section">
+          <div class="cv-section-label" data-i18n="cv_education_label">Education</div>
+          <div class="cv-sidebar__item">
+            <strong data-i18n="edu_badge">Master's Degree</strong>
+            <span data-i18n="edu_degree">Information Technologies</span><br/>
+            <span class="sub" data-i18n="edu_spec">Specialisation: Data Transmission and Processing</span><br/>
+            <span class="sub" data-i18n="edu_institution">Technical University · Ukraine</span><br/>
+            <span class="sub" data-i18n="edu_period">2000 – 2005</span>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="cv-sidebar__section">
+          <div class="cv-section-label" data-i18n="cv_languages_label">Languages</div>
+          <div class="cv-lang-row"><span>English</span><span data-i18n="cv_lang_en_level">Fluent</span></div>
+          <div class="cv-lang-row"><span>Русский</span><span data-i18n="cv_lang_ru_level">Native</span></div>
+          <div class="cv-lang-row"><span>Română</span><span data-i18n="cv_lang_ro_level">Fluent</span></div>
+          <div class="cv-lang-row"><span>Українська</span><span data-i18n="cv_lang_ua_level">Fluent</span></div>
+        </div>
+
+        <!-- Contact -->
+        <div class="cv-sidebar__section">
+          <div class="cv-section-label" data-i18n="cv_contact_label">Contact</div>
+          <div class="cv-sidebar__contact-row">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:ai@aivanov.ai">ai@aivanov.ai</a>
+          </div>
+          <div class="cv-sidebar__contact-row">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            <a href="https://t.me/alexeiivanov" target="_blank" rel="noopener">@alexeiivanov</a>
+          </div>
+          <div class="cv-sidebar__contact-row">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://www.linkedin.com/in/1alexeiivanov/" target="_blank" rel="noopener">/in/1alexeiivanov</a>
+          </div>
+          <div class="cv-sidebar__contact-row">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span data-i18n="contact_loc_value">Abu Dhabi, UAE</span>
+          </div>
+        </div>
+
+        <!-- Industries -->
+        <div class="cv-sidebar__section">
+          <div class="cv-section-label" data-i18n="cv_industry_label">Industries</div>
+          <ul class="cv-industry-list">
+            <li data-i18n="sector_1">IT Systems Integration</li>
+            <li data-i18n="sector_3">Wholesale &amp; Distribution</li>
+            <li data-i18n="sector_4">Government Investment Holdings</li>
+            <li data-i18n="sector_5">Hospitality</li>
+            <li>Oil &amp; Gas</li>
+          </ul>
+        </div>
+
+      </aside>
+
+      <!-- Main -->
+      <main class="cv-main">
+
+        <!-- Profile -->
+        <section class="cv-main__section">
+          <div class="cv-main__label" data-i18n="cv_profile_label">Executive Profile</div>
+          <div class="cv-profile">
+            <p data-i18n="cv_summary">20+ years delivering enterprise IT...</p>
+          </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="cv-main__section">
+          <div class="cv-main__label" data-i18n="cv_experience_label">Work Experience</div>
+
+          <div class="cv-job">
+            <div class="cv-job__header">
+              <div class="cv-job__role" data-i18n-html="job1_role">Head of IT &amp; Digital</div>
+              <div class="cv-job__period" data-i18n="job1_period">Apr 2024 — Present</div>
+            </div>
+            <div class="cv-job__company" data-i18n-html="job1_company">CYVN Holdings · Abu Dhabi, UAE</div>
+            <div class="cv-job__desc" data-i18n="job1_desc">Reporting directly to the CFO...</div>
+            <div class="cv-job__tags" data-i18n-tags="job1_tags"></div>
+          </div>
+
+          <div class="cv-job">
+            <div class="cv-job__header">
+              <div class="cv-job__role" data-i18n="job2_role">Head of Information Technology</div>
+              <div class="cv-job__period" data-i18n="job2_period">Sep 2020 — Apr 2024</div>
+            </div>
+            <div class="cv-job__company" data-i18n-html="job2_company">MAPYR · Dubai, UAE</div>
+            <div class="cv-job__desc" data-i18n="job2_desc">Reporting to CEO...</div>
+            <div class="cv-job__tags" data-i18n-tags="job2_tags"></div>
+          </div>
+
+          <div class="cv-job">
+            <div class="cv-job__header">
+              <div class="cv-job__role" data-i18n-html="job3_role">IT Service &amp; Support Manager</div>
+              <div class="cv-job__period" data-i18n="job3_period">Feb 2019 — Sep 2020</div>
+            </div>
+            <div class="cv-job__company" data-i18n-html="job3_company">Polarcus · Dubai, UAE</div>
+            <div class="cv-job__desc" data-i18n="job3_desc">Managed IT service delivery...</div>
+            <div class="cv-job__tags" data-i18n-tags="job3_tags"></div>
+          </div>
+
+          <div class="cv-job">
+            <div class="cv-job__header">
+              <div class="cv-job__role" data-i18n-html="job4_role">Project Manager &amp; Senior Technical Expert</div>
+              <div class="cv-job__period" data-i18n="job4_period">Dec 2015 — Feb 2019</div>
+            </div>
+            <div class="cv-job__company" data-i18n-html="job4_company">ACIS IT &amp; Lukoil International Services · Dubai, UAE</div>
+            <div class="cv-job__desc" data-i18n="job4_desc">At ACIS...</div>
+            <div class="cv-job__tags" data-i18n-tags="job4_tags"></div>
+          </div>
+
+        </section>
+
+        <!-- Achievements -->
+        <section class="cv-main__section">
+          <div class="cv-main__label" data-i18n="cv_achievements_label">Key Achievements</div>
+
+          <div class="cv-ach">
+            <div class="cv-ach__metric">Jan 2025 · 100%</div>
+            <div class="cv-ach__body">
+              <div class="cv-ach__title" data-i18n-html="ach1_title">D365 F&amp;O ERP Go-Live</div>
+              <div class="cv-ach__desc" data-i18n="ach1_desc">Executed the full enterprise rollout...</div>
+            </div>
+          </div>
+
+          <div class="cv-ach">
+            <div class="cv-ach__metric">~97% reduction</div>
+            <div class="cv-ach__body">
+              <div class="cv-ach__title" data-i18n="ach2_title">Host-to-Host Bank Integration</div>
+              <div class="cv-ach__desc" data-i18n="ach2_desc">Spearheaded H2H bank integration...</div>
+            </div>
+          </div>
+
+          <div class="cv-ach">
+            <div class="cv-ach__metric">28% gains</div>
+            <div class="cv-ach__body">
+              <div class="cv-ach__title" data-i18n="ach3_title">Enterprise AI Adoption Programme</div>
+              <div class="cv-ach__desc" data-i18n="ach3_desc">Launched Microsoft Copilot...</div>
+            </div>
+          </div>
+
+          <div class="cv-ach">
+            <div class="cv-ach__metric">~35% faster</div>
+            <div class="cv-ach__body">
+              <div class="cv-ach__title" data-i18n-html="ach4_title">IT Operating Model &amp; Service Desk</div>
+              <div class="cv-ach__desc" data-i18n="ach4_desc">Built a formal IT operating model...</div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- Competencies -->
+        <section class="cv-main__section">
+          <div class="cv-main__label" data-i18n="cv_competencies_label">Core Competencies</div>
+          <div class="cv-comp-grid">
+
+            <div class="cv-comp-group">
+              <div class="cv-comp-group__title" data-i18n-html="cg1_title">Cloud &amp; Enterprise Platforms</div>
+              <ul class="cv-comp-list">
+                <li data-i18n-html="c1_1">Cloud Platform Strategy &amp; Governance</li>
+                <li data-i18n-html="c1_2">Zero Trust Identity &amp; Access</li>
+                <li data-i18n-html="c1_3">Multi-Cloud Strategy &amp; Cost Optimisation</li>
+                <li data-i18n="c1_4">Scalable Infrastructure Design</li>
+                <li data-i18n-html="c1_5">Network &amp; Perimeter Security</li>
+                <li data-i18n-html="c1_6">Business Continuity &amp; DR</li>
+              </ul>
+            </div>
+
+            <div class="cv-comp-group">
+              <div class="cv-comp-group__title" data-i18n-html="cg2_title">AI &amp; Intelligent Automation</div>
+              <ul class="cv-comp-list">
+                <li data-i18n-html="c2_1">GenAI &amp; Copilot Strategy</li>
+                <li data-i18n="c2_2">AI-Driven Security Operations</li>
+                <li data-i18n="c2_3">Intelligent Process Automation</li>
+                <li data-i18n-html="c2_4">AI Governance &amp; Data Sovereignty</li>
+                <li data-i18n="c2_5">Enterprise AI Adoption Strategy</li>
+                <li data-i18n-html="c2_6">AI Investment &amp; ROI Modelling</li>
+              </ul>
+            </div>
+
+            <div class="cv-comp-group">
+              <div class="cv-comp-group__title" data-i18n-html="cg3_title">Governance, Risk &amp; Compliance</div>
+              <ul class="cv-comp-list">
+                <li data-i18n="c3_1">ICFR-Aligned IT Controls</li>
+                <li data-i18n-html="c3_2">Data Protection &amp; Classification</li>
+                <li data-i18n-html="c3_3">IT Service Management &amp; Governance</li>
+                <li data-i18n-html="c3_4">Threat &amp; Vulnerability Management</li>
+                <li data-i18n-html="c3_5">Audit Readiness &amp; Cyber Insurance</li>
+                <li data-i18n-html="c3_6">Executive &amp; Board Advisory</li>
+              </ul>
+            </div>
+
+            <div class="cv-comp-group">
+              <div class="cv-comp-group__title" data-i18n-html="cg4_title">ERP &amp; Financial Operations</div>
+              <ul class="cv-comp-list">
+                <li data-i18n-html="c4_1">Enterprise ERP Strategy &amp; Delivery</li>
+                <li data-i18n-html="c4_2">Bank Integration &amp; Payment Automation</li>
+                <li data-i18n="c4_3">CFO-Aligned Technology Delivery</li>
+                <li data-i18n-html="c4_4">ERP Cutover &amp; Go-Live Execution</li>
+                <li data-i18n-html="c4_5">IT Financial Management &amp; Budgeting</li>
+                <li data-i18n-html="c4_6">Strategic Vendor &amp; Contract Management</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+    </div><!-- /cv-body -->
+  </div><!-- /page-wrap -->
+
+  <script src="translations.js"></script>
+  <script>
+    /* ── i18n ── */
+    function applyLang(lang) {
+      if (!window.TRANS || !window.TRANS[lang]) return;
+      const T = window.TRANS[lang];
+      const html = document.documentElement;
+      html.setAttribute('lang', lang === 'ar' ? 'ar' : lang === 'ru' ? 'ru' : 'en');
+      html.setAttribute('dir',  lang === 'ar' ? 'rtl' : 'ltr');
+      html.setAttribute('data-lang', lang);
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = T[el.getAttribute('data-i18n')];
+        if (v !== undefined) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const v = T[el.getAttribute('data-i18n-html')];
+        if (v !== undefined) el.innerHTML = v;
+      });
+      document.querySelectorAll('[data-i18n-tags]').forEach(el => {
+        const v = T[el.getAttribute('data-i18n-tags')];
+        if (Array.isArray(v)) {
+          el.innerHTML = v.map(t => `<span class="cv-job__tag">${t}</span>`).join('');
+        }
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      localStorage.setItem('lang', lang);
+    }
+
+    (function init() {
+      const saved = localStorage.getItem('lang') || 'en';
+      applyLang(saved);
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
+      });
+    })();
+  </script>
+</body>
+</html>

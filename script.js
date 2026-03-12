@@ -400,21 +400,29 @@ function initTicker() {
   const el = $('#heroTicker');
   if (!el) return;
 
-  const lines = [
-    'D365 F&amp;O ERP cutover — on time, Jan 1 2025',
-    'H2H Bank Integration — ~97% payment automation',
-    'Microsoft Copilot — 28% productivity uplift',
-    'IT Operating Model — ~35% faster resolution',
-    'ICFR Controls — audit-ready governance',
-    'Annual IT Budget — AED 2M, CapEx/OpEx disciplined',
-  ];
   let idx = 0;
+  let intervalId = null;
+
+  const getLines = () => {
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    return (window.TRANS && window.TRANS[lang] && window.TRANS[lang].ticker)
+      ? window.TRANS[lang].ticker
+      : [
+          'D365 F&amp;O ERP cutover — on time, Jan 1 2025',
+          'H2H Bank Integration — ~97% payment automation',
+          'Microsoft Copilot — 28% productivity uplift',
+          'IT Operating Model — ~35% faster resolution',
+          'ICFR Controls — audit-ready governance',
+          'Annual IT Budget — AED 2M, CapEx/OpEx disciplined',
+        ];
+  };
 
   const swap = () => {
+    const lines = getLines();
     el.style.opacity = '0';
     el.style.transform = 'translateY(6px)';
     setTimeout(() => {
-      el.innerHTML = lines[idx];
+      el.innerHTML = lines[idx % lines.length];
       el.style.opacity = '1';
       el.style.transform = 'translateY(0)';
       idx = (idx + 1) % lines.length;
@@ -422,7 +430,15 @@ function initTicker() {
   };
 
   swap();
-  setInterval(swap, 3800);
+  intervalId = setInterval(swap, 3800);
+
+  /* expose restart so lang switch can reset the ticker */
+  window._restartTicker = () => {
+    clearInterval(intervalId);
+    idx = 0;
+    swap();
+    intervalId = setInterval(swap, 3800);
+  };
 }
 
 /* ─── HERO SCRAMBLE on LOAD ────────────────────────────────────── */
@@ -523,6 +539,149 @@ function initScrollNav() {
   updateState(); /* set initial state */
 }
 
+/* ─── SCROLL PROGRESS TIMELINE ─────────────────────────────────── */
+function initScrollProgress() {
+  const spFill  = document.getElementById('spFill');
+  const spNodes = document.getElementById('spNodes');
+  if (!spFill || !spNodes) return;
+
+  /* sections to mark on the timeline */
+  const SECTIONS = [
+    { id: 'about',        label: 'About'       },
+    { id: 'approach',     label: 'Approach'    },
+    { id: 'experience',   label: 'Experience'  },
+    { id: 'competencies', label: 'Expertise'   },
+    { id: 'achievements', label: 'Impact'      },
+    { id: 'contact',      label: 'Contact'     },
+  ];
+
+  let nodeRefs = []; /* { node: HTMLElement, el: HTMLElement } */
+
+  /* build / rebuild milestone dots */
+  function buildNodes() {
+    spNodes.innerHTML = '';
+    nodeRefs = [];
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    if (docH <= 0) return;
+
+    SECTIONS.forEach(sec => {
+      const el = document.getElementById(sec.id);
+      if (!el) return;
+
+      const pct  = Math.min((el.offsetTop / docH) * 100, 98);
+      const btn  = document.createElement('button');
+      btn.className = 'sp__node';
+      btn.style.left = pct + '%';
+      btn.setAttribute('aria-label', 'Go to ' + sec.label);
+
+      const lbl = document.createElement('span');
+      lbl.className = 'sp__label';
+      lbl.textContent = sec.label;
+      btn.appendChild(lbl);
+
+      /* click → smooth-scroll to section */
+      btn.addEventListener('click', () => {
+        el.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      spNodes.appendChild(btn);
+      nodeRefs.push({ node: btn, el });
+    });
+  }
+
+  /* per-frame update */
+  function update() {
+    const scrollY = window.scrollY;
+    const docH    = document.documentElement.scrollHeight - window.innerHeight;
+    const pct     = docH > 0 ? Math.min(scrollY / docH, 1) : 0;
+
+    /* — bar fill — */
+    spFill.style.width = (pct * 100) + '%';
+
+    /* — node states — */
+    const threshold = scrollY + window.innerHeight * 0.38;
+    nodeRefs.forEach(({ node, el }) => {
+      const top = el.offsetTop;
+      const bot = top + el.offsetHeight;
+      node.classList.remove('sp__node--passed', 'sp__node--active');
+      if (threshold >= bot) {
+        node.classList.add('sp__node--passed');
+      } else if (threshold >= top) {
+        node.classList.add('sp__node--active');
+      }
+    });
+  }
+
+  buildNodes();
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', () => { buildNodes(); update(); }, { passive: true });
+}
+
+/* ─── LANGUAGE SWITCHER ─────────────────────────────────────────── */
+function applyLang(lang) {
+  if (!window.TRANS || !window.TRANS[lang]) return;
+  const T = window.TRANS[lang];
+  const html = document.documentElement;
+  html.setAttribute('lang', lang === 'ar' ? 'ar' : lang === 'ru' ? 'ru' : 'en');
+  html.setAttribute('dir',  lang === 'ar' ? 'rtl' : 'ltr');
+  html.setAttribute('data-lang', lang);
+
+  /* plain text */
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (T[key] !== undefined) el.textContent = T[key];
+  });
+
+  /* HTML content (contains tags like <strong>, <br>, &amp;) */
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (T[key] !== undefined) el.innerHTML = T[key];
+  });
+
+  /* re-apply metric bar widths (they may have been re-injected) */
+  document.querySelectorAll('.metric-bar__fill').forEach(fill => {
+    if (fill.dataset.w) fill.style.width = fill.dataset.w + '%';
+  });
+
+  /* tag arrays */
+  document.querySelectorAll('[data-i18n-tags]').forEach(el => {
+    const key = el.getAttribute('data-i18n-tags');
+    if (Array.isArray(T[key])) {
+      el.innerHTML = T[key].map(t => `<span>${t}</span>`).join('');
+    }
+  });
+
+  /* update lang-btn active state on both switchers */
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+
+  /* re-scramble the hero title */
+  const heroTitle = document.getElementById('heroTitle');
+  if (heroTitle && T['hero_title']) {
+    heroTitle.textContent = T['hero_title'];
+    new TextScramble(heroTitle).run(T['hero_title'], 400);
+  }
+
+  /* restart ticker in new language */
+  if (window._restartTicker) window._restartTicker();
+
+  localStorage.setItem('lang', lang);
+}
+
+function initLang() {
+  const saved = localStorage.getItem('lang') || 'en';
+  applyLang(saved);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      applyLang(lang);
+    });
+  });
+}
+
 /* ─── INIT ─────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
@@ -536,6 +695,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initSectionScan();
   initScrollNav();
   initTicker();
+  initScrollProgress();
+  initLang();
 
   /* start the neural canvas */
   new NeuralCanvas('neuralCanvas');
