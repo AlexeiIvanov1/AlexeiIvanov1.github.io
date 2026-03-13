@@ -377,7 +377,7 @@ function initCounters() {
     });
   }, { threshold: 0.6 });
 
-  $$('.stat-card__number').forEach(el => obs.observe(el));
+  $$('.stat-card__number, .metrics-band__number').forEach(el => obs.observe(el));
 }
 
 /* ─── METRIC BARS ──────────────────────────────────────────────── */
@@ -683,6 +683,18 @@ function initLang() {
 }
 
 /* ─── INIT ─────────────────────────────────────────────────────── */
+function initPhotoModal() {
+  const photo = document.querySelector('.hero__photo');
+  const modal = document.getElementById('photoModal');
+  if (!photo || !modal) return;
+
+  photo.addEventListener('click', () => modal.classList.add('active'));
+  modal.addEventListener('click', () => modal.classList.remove('active'));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') modal.classList.remove('active');
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initReveal();
@@ -697,6 +709,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTicker();
   initScrollProgress();
   initLang();
+  initPhotoModal();
 
   /* start the neural canvas */
   new NeuralCanvas('neuralCanvas');

@@ -41,8 +41,8 @@ en: {
 
   /* HERO */
   hero_badge:   'Abu Dhabi, UAE \u00a0·\u00a0 Currently at CYVN Holdings',
-  hero_title:   'Head of IT & Digital \u00a0|\u00a0 CFO-Facing Technology Executive \u00a0|\u00a0 IT Governance for High-Growth Organizations',
-  hero_value:   'Driving enterprise transformation with board-level clarity across complex, regulated environments -<br class="br-desktop"/> from ERP cutovers and cyber resilience to AI adoption at scale.',
+  hero_title:   'Head of IT & Digital \u00a0|\u00a0 CFO-Facing Technology Executive',
+  hero_value:   'Driving enterprise transformation with board-level clarity across complex, regulated environments — from ERP cutovers and cyber resilience to AI adoption at scale.',
   btn_cv:       'Download CV',
   btn_linkedin: 'Connect on LinkedIn',
 
@@ -70,6 +70,10 @@ en: {
   stat_langs_l:  'Languages (EN · RU · RO · UA)',
   stat_comp_n:   'UAE',
   stat_comp_l:   'Regulatory & Compliance Expert',
+  mbm_auto_l:    'Payment Automation',
+  mbm_ai_l:      'AI Productivity Gain',
+  mbm_yrs_l:     'Years Experience',
+  mbm_erp_l:     'ERP Go-Lives',
   sectors_title: 'Industry Experience',
   sector_1:      'IT Systems Integration',
   sector_2:      'Oil &amp; Gas <span class="sector-tile__sub">Onshore &amp; Offshore</span>',
@@ -246,7 +250,7 @@ ru: {
 
   /* HERO */
   hero_badge:   'Абу-Даби, ОАЭ \u00a0·\u00a0 В настоящее время в CYVN Holdings',
-  hero_title:   'Руководитель ИТ и Цифровых технологий \u00a0|\u00a0 Технологический партнёр финансового директора \u00a0|\u00a0 ИТ-управление для быстрорастущих организаций',
+  hero_title:   'Руководитель ИТ и Цифровых технологий \u00a0|\u00a0 Технологический партнёр финансового директора',
   hero_value:   'Реализую цифровую трансформацию предприятий с чёткостью уровня совета директоров - от внедрения ERP и киберустойчивости до масштабного внедрения ИИ.',
   btn_cv:       'Скачать резюме',
   btn_linkedin: 'Связаться в LinkedIn',
@@ -275,6 +279,10 @@ ru: {
   stat_langs_l:  'Языка (EN · RU · RO · UA)',
   stat_comp_n:   'ОАЭ',
   stat_comp_l:   'Эксперт по регуляторике',
+  mbm_auto_l:    'Автоматизация платежей',
+  mbm_ai_l:      'Рост продуктивности ИИ',
+  mbm_yrs_l:     'Лет опыта',
+  mbm_erp_l:     'Внедрений ERP',
   sectors_title: 'Отраслевой опыт',
   sector_1:      'Интеграция ИТ-систем',
   sector_2:      'Нефть и Газ <span class="sector-tile__sub">Суша и море</span>',
@@ -454,7 +462,7 @@ ar: {
 
   /* HERO */
   hero_badge:   'أبوظبي، الإمارات \u00a0·\u00a0 حالياً في CYVN Holdings',
-  hero_title:   'رئيس تقنية المعلومات والرقمنة \u00a0|\u00a0 الشريك التقني للمدير المالي \u00a0|\u00a0 حوكمة تقنية المعلومات للمؤسسات سريعة النمو',
+  hero_title:   'رئيس تقنية المعلومات والرقمنة \u00a0|\u00a0 الشريك التقني للمدير المالي',
   hero_value:   'قيادة التحول الرقمي للمؤسسات بوضوح استراتيجي على مستوى مجلس الإدارة - من تشغيل أنظمة ERP والمرونة السيبرانية إلى تبني الذكاء الاصطناعي على نطاق واسع.',
   btn_cv:       'تحميل السيرة الذاتية',
   btn_linkedin: 'تواصل عبر LinkedIn',
@@ -483,6 +491,10 @@ ar: {
   stat_langs_l:  'لغات (EN · RU · RO · UA)',
   stat_comp_n:   'الإمارات',
   stat_comp_l:   'خبير الامتثال التنظيمي',
+  mbm_auto_l:    'أتمتة المدفوعات',
+  mbm_ai_l:      'مكاسب إنتاجية الذكاء الاصطناعي',
+  mbm_yrs_l:     'سنوات الخبرة',
+  mbm_erp_l:     'تطبيقات ERP',
   sectors_title: 'الخبرة القطاعية',
   sector_1:      'تكامل أنظمة تقنية المعلومات',
   sector_2:      'النفط والغاز <span class="sector-tile__sub">بري وبحري</span>',

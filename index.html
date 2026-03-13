@@ -163,24 +163,33 @@
 
     <div class="hero__content reveal">
       <div class="hero__badge" data-i18n="hero_badge">Abu Dhabi, UAE &nbsp;·&nbsp; Currently at CYVN Holdings</div>
-      <h1 class="hero__name">Alexei <span class="accent">Ivanov</span></h1>
-      <p class="hero__title" id="heroTitle" data-scramble data-i18n="hero_title">Head of IT &amp; Digital &nbsp;|&nbsp; CFO-Facing Technology Executive &nbsp;|&nbsp; IT Governance for High-Growth Organizations</p>
-      <p class="hero__value" data-i18n-html="hero_value">Driving enterprise transformation with board-level clarity across complex, regulated environments —<br class="br-desktop"/> from ERP cutovers and cyber resilience to AI adoption at scale.</p>
-      <div class="hero__actions">
-        <a href="cv-alexei-ivanov.pdf" class="btn btn--primary" download>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span data-i18n="btn_cv">Download CV</span>
-        </a>
-        <a href="https://www.linkedin.com/in/1alexeiivanov/" target="_blank" rel="noopener" class="btn btn--secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          <span data-i18n="btn_linkedin">Connect on LinkedIn</span>
-        </a>
-      </div>
 
-      <!-- Live ticker cycling achievements -->
-      <div class="hero__ticker-wrap" aria-live="polite" aria-atomic="true">
-        <span class="hero__ticker-label">// LIVE</span>
-        <span id="heroTicker"></span>
+      <div class="hero__main">
+        <div class="hero__text">
+          <h1 class="hero__name">Alexei <span class="accent">Ivanov</span></h1>
+          <p class="hero__title" id="heroTitle" data-scramble data-i18n="hero_title">Head of IT &amp; Digital &nbsp;|&nbsp; CFO-Facing Technology Executive</p>
+          <p class="hero__value" data-i18n-html="hero_value">Driving enterprise transformation with board-level clarity across complex, regulated environments — from ERP cutovers and cyber resilience to AI adoption at scale.</p>
+          <div class="hero__actions">
+            <a href="cv-alexei-ivanov.pdf" class="btn btn--primary" download>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span data-i18n="btn_cv">Download CV</span>
+            </a>
+            <a href="https://www.linkedin.com/in/1alexeiivanov/" target="_blank" rel="noopener" class="btn btn--secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <span data-i18n="btn_linkedin">Connect on LinkedIn</span>
+            </a>
+          </div>
+
+          <!-- Live ticker cycling achievements -->
+          <div class="hero__ticker-wrap" aria-live="polite" aria-atomic="true">
+            <span class="hero__ticker-label">// LIVE</span>
+            <span id="heroTicker"></span>
+          </div>
+        </div>
+
+        <div class="hero__photo">
+          <img src="photo.png" alt="Alexei Ivanov" />
+        </div>
       </div>
     </div>
 
@@ -188,6 +197,30 @@
       <span></span>
     </div>
   </section>
+
+  <!-- ─── METRICS BAND ────────────────────────────────────────────── -->
+  <div class="metrics-band">
+    <div class="container">
+      <div class="metrics-band__grid">
+        <div class="metrics-band__item">
+          <span class="metrics-band__number">97%</span>
+          <span class="metrics-band__label" data-i18n="mbm_auto_l">Payment Automation</span>
+        </div>
+        <div class="metrics-band__item">
+          <span class="metrics-band__number">28%</span>
+          <span class="metrics-band__label" data-i18n="mbm_ai_l">AI Productivity Gain</span>
+        </div>
+        <div class="metrics-band__item">
+          <span class="metrics-band__number">20+</span>
+          <span class="metrics-band__label" data-i18n="mbm_yrs_l">Years Experience</span>
+        </div>
+        <div class="metrics-band__item">
+          <span class="metrics-band__number">4</span>
+          <span class="metrics-band__label" data-i18n="mbm_erp_l">ERP Go-Lives</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ─── ABOUT ─────────────────────────────────────────────────── -->
   <section class="section about" id="about">
@@ -693,6 +726,11 @@
       <polyline points="6 9 12 15 18 9"/>
     </svg>
   </button>
+
+  <!-- ─── PHOTO LIGHTBOX ──────────────────────────────────────── -->
+  <div class="photo-modal" id="photoModal" role="dialog" aria-modal="true" aria-label="Photo of Alexei Ivanov">
+    <img src="photo.png" alt="Alexei Ivanov" class="photo-modal__img" />
+  </div>
 
   <script src="translations.js"></script>
   <script src="script.js"></script>
