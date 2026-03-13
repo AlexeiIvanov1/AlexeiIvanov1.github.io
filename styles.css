@@ -121,6 +121,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--accent-blue) !important;
   color: var(--bg-base) !important;
 }
+/* Arabic translation notice */
+.ar-notice {
+  display: none;
+  text-align: center;
+  font-size: 0.72rem;
+  color: rgba(212, 175, 55, 0.75);
+  background: rgba(212, 175, 55, 0.06);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 6px 20px;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+}
+[data-lang="ar"] .ar-notice { display: block; }
+
 .nav__hamburger {
   display: flex;
   flex-direction: column;
