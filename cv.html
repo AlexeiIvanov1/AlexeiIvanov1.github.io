@@ -438,9 +438,23 @@
     [dir="rtl"] .cv-profile p { text-align: right; }
 
     /* ── PRINT ───────────────────────────────────────────────── */
+    /* Arabic notice */
+    .ar-notice {
+      display: none;
+      text-align: center;
+      font-size: 0.7rem;
+      color: rgba(180, 140, 30, 0.85);
+      background: rgba(255, 248, 220, 0.6);
+      border-bottom: 1px solid rgba(180, 140, 30, 0.2);
+      padding: 5px 20px;
+      line-height: 1.5;
+    }
+    [data-lang="ar"] .ar-notice { display: block; }
+
     @media print {
       body { background: white; }
       .toolbar { display: none; }
+      .ar-notice { display: none; }
       .page-wrap { box-shadow: none; margin: 0; max-width: 100%; }
       .cv-body { min-height: auto; }
       .cv-main__section { break-inside: avoid; }
@@ -480,6 +494,11 @@
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
       <span data-i18n="cv_print">Print / Save PDF</span>
     </button>
+  </div>
+
+  <!-- Arabic translation notice -->
+  <div class="ar-notice">
+    <span data-i18n="ar_notice"></span>
   </div>
 
   <!-- CV Document -->
