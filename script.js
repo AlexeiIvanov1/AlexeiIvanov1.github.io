@@ -683,6 +683,36 @@ function initLang() {
 }
 
 /* ─── INIT ─────────────────────────────────────────────────────── */
+function initPhotoTilt() {
+  const photo = document.querySelector('.hero__photo');
+  if (!photo || window.matchMedia('(hover: none)').matches) return;
+
+  const glare = document.createElement('div');
+  glare.className = 'photo-glare';
+  photo.appendChild(glare);
+
+  photo.addEventListener('mouseenter', () => {
+    photo.style.transition = 'transform 0.15s ease';
+    glare.style.opacity = '1';
+  });
+
+  photo.addEventListener('mousemove', (e) => {
+    const r  = photo.getBoundingClientRect();
+    const dx = (e.clientX - (r.left + r.width  / 2)) / (r.width  / 2);
+    const dy = (e.clientY - (r.top  + r.height / 2)) / (r.height / 2);
+    photo.style.transform =
+      `perspective(700px) rotateX(${dy * -12}deg) rotateY(${dx * 12}deg) scale(1.08)`;
+    glare.style.background =
+      `radial-gradient(circle at ${50 + dx * 30}% ${50 + dy * 30}%, rgba(255,255,255,0.22) 0%, transparent 65%)`;
+  });
+
+  photo.addEventListener('mouseleave', () => {
+    photo.style.transition = 'transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94)';
+    photo.style.transform  = '';
+    glare.style.opacity    = '0';
+  });
+}
+
 function initPhotoModal() {
   const photo = document.querySelector('.hero__photo');
   const modal = document.getElementById('photoModal');
@@ -709,6 +739,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTicker();
   initScrollProgress();
   initLang();
+  initPhotoTilt();
   initPhotoModal();
 
   /* start the neural canvas */
