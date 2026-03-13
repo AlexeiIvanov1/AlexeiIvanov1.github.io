@@ -455,6 +455,51 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   from { transform: scale(0.75); opacity: 0; }
   to   { transform: scale(1);    opacity: 1; }
 }
+/* ── LOGOS STRIP ──────────────────────────────────────────────── */
+.logos-strip {
+  padding: 32px 24px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.logos-strip__label {
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+}
+.logos-strip__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 36px;
+}
+.logos-strip__logo {
+  color: rgba(240, 244, 252, 0.28);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  cursor: default;
+  user-select: none;
+}
+.logos-strip__logo:hover { color: rgba(240, 244, 252, 0.9); }
+
+/* Per-brand wordmark styling */
+.logos-strip__logo--cyvn    { font-weight: 700; letter-spacing: 0.1em; }
+.logos-strip__logo--mclaren { font-weight: 800; letter-spacing: 0.03em; font-style: italic; }
+.logos-strip__logo--mclaren:hover { color: #ff8000; }
+.logos-strip__logo--nio     { font-weight: 300; letter-spacing: 0.2em; }
+.logos-strip__logo--nio:hover { color: var(--accent-blue); }
+.logos-strip__logo--mapyr   { font-weight: 700; letter-spacing: 0.12em; }
+.logos-strip__logo--polarcus { font-weight: 400; letter-spacing: 0.06em; }
+.logos-strip__logo--polarcus:hover { color: #00bcd4; }
+.logos-strip__logo--lukoil  { font-weight: 700; letter-spacing: 0.05em; }
+.logos-strip__logo--lukoil:hover  { color: #e53935; }
+
 @keyframes photo-ring {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
