@@ -415,7 +415,8 @@
 
     /* ── RTL ─────────────────────────────────────────────────── */
     [dir="rtl"] .cv-body { grid-template-columns: 1fr 230px; }
-    [dir="rtl"] .cv-sidebar { border-right: none; border-left: 1px solid var(--rule); }
+    [dir="rtl"] .cv-sidebar { grid-column: 2; border-right: none; border-left: 1px solid var(--rule); }
+    [dir="rtl"] .cv-main { grid-column: 1; }
     [dir="rtl"] .cv-header { flex-direction: row-reverse; }
     [dir="rtl"] .cv-header__contact { text-align: left; }
     [dir="rtl"] .cv-header__title { max-width: none; }
