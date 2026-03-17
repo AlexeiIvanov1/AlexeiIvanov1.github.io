@@ -42,7 +42,7 @@ en: {
   /* HERO */
   hero_badge:   'Abu Dhabi, UAE \u00a0·\u00a0 Currently at CYVN Holdings',
   hero_title:   'Head of IT & Digital \u00a0|\u00a0 CFO-Facing Technology Executive',
-  hero_value:   'Driving enterprise transformation with board-level clarity across complex, regulated environments — from ERP cutovers and cyber resilience to AI adoption at scale.',
+  hero_value:   'Driving enterprise transformation with board-level clarity across complex, regulated environments - from ERP cutovers and cyber resilience to AI adoption at scale.',
   btn_cv:       'Download CV',
   btn_linkedin: 'Connect on LinkedIn',
 
