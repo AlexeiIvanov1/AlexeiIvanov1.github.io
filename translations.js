@@ -97,6 +97,9 @@ en: {
   voice2_text:    'Alexei led our full digital transformation - from cybersecurity to ERP migration - with methodology and persistence. Essential to making MAPYR a leading, innovative partner.',
   voice2_name:    'Pierre-Yves Renoir',
   voice2_role:    'CEO &amp; Founder &nbsp;&middot;&nbsp; MAPYR',
+  voice3_text:    'Alexei earned top marks across every team he worked with - including our offshore crews, which is no easy feat. Technically strong, professionally sharp, and genuinely liked by everyone.',
+  voice3_name:    'Erik Ruis',
+  voice3_role:    'Head of IT &nbsp;&middot;&nbsp; Polarcus',
 
   /* EXPERIENCE */
   exp_label:    'Career',
@@ -307,6 +310,9 @@ ru: {
   voice2_text:    'Алексей провёл нашу полную цифровую трансформацию - от кибербезопасности до миграции ERP - с методологией и настойчивостью. Незаменим для того, чтобы сделать MAPYR ведущим инновационным партнёром.',
   voice2_name:    'Pierre-Yves Renoir',
   voice2_role:    'CEO &amp; Основатель &nbsp;&middot;&nbsp; MAPYR',
+  voice3_text:    'Алексей получал высшие оценки в каждой команде, с которой работал, - включая наши морские экипажи, а это дорогого стоит. Технически сильный, профессионально точный и по-настоящему уважаемый всеми.',
+  voice3_name:    'Erik Ruis',
+  voice3_role:    'Head of IT &nbsp;&middot;&nbsp; Polarcus',
 
   /* EXPERIENCE */
   exp_label:    'Карьера',
@@ -520,6 +526,9 @@ ar: {
   voice2_text:    'قاد أليكسي تحولنا الرقمي الكامل - من الأمن السيبراني إلى هجرة ERP - بمنهجية وثبات. لا غنى عنه لجعل MAPYR شريكاً رائداً ومبتكراً.',
   voice2_name:    'Pierre-Yves Renoir',
   voice2_role:    'الرئيس التنفيذي والمؤسس &nbsp;&middot;&nbsp; MAPYR',
+  voice3_text:    'حصل أليكسي على أعلى التقييمات في كل فريق عمل معه - بما في ذلك أطقمنا البحرية، وهذا ليس بالأمر السهل. متمكّن تقنياً، حادّ مهنياً، ويحظى باحترام حقيقي من الجميع.',
+  voice3_name:    'Erik Ruis',
+  voice3_role:    'Head of IT &nbsp;&middot;&nbsp; Polarcus',
 
   /* EXPERIENCE */
   exp_label:    'المسيرة المهنية',
