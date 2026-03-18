@@ -123,7 +123,7 @@ en: {
   job4_period:  'Dec 2015 - Feb 2019',
   job4_role:    'Project Manager &amp; Senior Technical Expert',
   job4_company: 'ACIS Information Technology &amp; Lukoil International Services &nbsp;·&nbsp; Dubai, UAE',
-  job4_desc:    'At ACIS (2016–2019): Reported to CEO, managed a team of 20 experts and delivered 10 end-to-end IT projects for hospitality, government, and private sector clients including Rotana (35 hotels) and Movenpick. At Lukoil (2015–2016): VIP helpdesk and mobile systems engineer supporting 1,000+ users across UAE and abroad. Recipient of multiple letters of appreciation for outstanding performance and initiative.',
+  job4_desc:    'At ACIS (2016–2019): Reported to CEO, managed a team of 20 experts and delivered 10 end-to-end IT projects for hospitality, government, and private sector clients including Rotana (35 hotels) and Mövenpick. At Lukoil (2015–2016): VIP helpdesk and mobile systems engineer supporting 1,000+ users across UAE and abroad. Recipient of multiple letters of appreciation for outstanding performance and initiative.',
   job4_tags:    ['Project Management', 'Hospitality IT', 'VIP Support', 'Infrastructure Deployment', 'Team of 20'],
 
   /* EDUCATION */
@@ -178,7 +178,7 @@ en: {
   focus2_title:  'Zero Trust at Scale',
   focus2_desc:   'Moving beyond perimeter security into identity-centric, continuously verified architectures across multi-cloud, hybrid, and edge environments - with practical implementation playbooks for mid-market organisations.',
   focus2_status: 'Building Playbook',
-  focus3_title:  'IT Operating Models for Greenfield Organizations',
+  focus3_title:  'IT Operating Models for Greenfield Organisations',
   focus3_desc:   'Codifying the playbook for building IT functions from zero in new ventures and holding structures - governance, service design, vendor strategy, and team architecture that scale from day one.',
   focus3_status: 'In Practice',
 
@@ -336,7 +336,7 @@ ru: {
   job4_period:  'Дек 2015 - Фев 2019',
   job4_role:    'Менеджер проектов и старший технический эксперт',
   job4_company: 'ACIS Information Technology &amp; Lukoil International Services &nbsp;·&nbsp; Дубай, ОАЭ',
-  job4_desc:    'ACIS (2016–2019): подчинение генеральному директору, команда 20 экспертов, реализация 10 сквозных ИТ-проектов для клиентов из сферы гостеприимства, госсектора и частного бизнеса - в том числе Rotana (35 отелей) и Movenpick. Lukoil (2015–2016): VIP helpdesk и инженер мобильных систем для 1000+ пользователей в ОАЭ и за рубежом. Неоднократно отмечен благодарственными письмами за выдающиеся результаты и инициативу.',
+  job4_desc:    'ACIS (2016–2019): подчинение генеральному директору, команда 20 экспертов, реализация 10 сквозных ИТ-проектов для клиентов из сферы гостеприимства, госсектора и частного бизнеса - в том числе Rotana (35 отелей) и Mövenpick. Lukoil (2015–2016): VIP helpdesk и инженер мобильных систем для 1000+ пользователей в ОАЭ и за рубежом. Неоднократно отмечен благодарственными письмами за выдающиеся результаты и инициативу.',
   job4_tags:    ['Управление проектами', 'Гостиничные ИТ', 'VIP-поддержка', 'Развёртывание инфраструктуры', 'Команда 20'],
 
   /* EDUCATION */
@@ -552,7 +552,7 @@ ar: {
   job4_period:  'ديس 2015 - فبر 2019',
   job4_role:    'مدير مشاريع وخبير تقني أول',
   job4_company: 'ACIS Information Technology &amp; Lukoil International Services &nbsp;·&nbsp; دبي، الإمارات',
-  job4_desc:    'ACIS (2016–2019): التبعية للرئيس التنفيذي، إدارة فريق من 20 خبيراً وتسليم 10 مشاريع تقنية معلومات شاملة لعملاء من قطاع الضيافة والحكومة والقطاع الخاص - بما يشمل Rotana (35 فندقاً) وMovenpick. Lukoil (2015–2016): مهندس دعم VIP وأنظمة متنقلة لأكثر من 1000 مستخدم في الإمارات وخارجها. حائز على عدة خطابات شكر وتقدير على التميز في الأداء والمبادرة.',
+  job4_desc:    'ACIS (2016–2019): التبعية للرئيس التنفيذي، إدارة فريق من 20 خبيراً وتسليم 10 مشاريع تقنية معلومات شاملة لعملاء من قطاع الضيافة والحكومة والقطاع الخاص - بما يشمل Rotana (35 فندقاً) وMövenpick. Lukoil (2015–2016): مهندس دعم VIP وأنظمة متنقلة لأكثر من 1000 مستخدم في الإمارات وخارجها. حائز على عدة خطابات شكر وتقدير على التميز في الأداء والمبادرة.',
   job4_tags:    ['إدارة المشاريع', 'تقنية الضيافة', 'دعم VIP', 'نشر البنية التحتية', 'فريق 20'],
 
   /* EDUCATION */

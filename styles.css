@@ -14,7 +14,7 @@
 
   --text-primary:   #f0f4fc;
   --text-secondary: #8a9ab8;
-  --text-muted:     #4a5a78;
+  --text-muted:     #6b7a96;
 
   --accent-blue:    #0ea5e9;
   --accent-blue-lo: rgba(14, 165, 233, 0.12);
@@ -27,7 +27,7 @@
   --radius-md:      12px;
   --radius-lg:      18px;
 
-  --font-sans:      'Inter', 'DM Sans', system-ui, sans-serif;
+  --font-sans:      'Inter', system-ui, sans-serif;
   --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -53,6 +53,27 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .container     { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 .br-desktop    { display: none; }
 @media (min-width: 768px) { .br-desktop { display: block; } }
+
+/* ── SKIP LINK ───────────────────────────────────────────────── */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  background: var(--accent-blue);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 12px;
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
 
 /* ── SCROLL REVEAL ───────────────────────────────────────────── */
 .reveal {
@@ -500,13 +521,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* Per-brand wordmark styling */
 .logos-strip__logo--cyvn    { font-weight: 700; letter-spacing: 0.1em; }
-.logos-strip__logo--mclaren { font-weight: 800; letter-spacing: 0.03em; font-style: italic; }
+.logos-strip__logo--cyvn:hover    { color: #ffffff; }
+.logos-strip__logo--mclaren { font-weight: 800; letter-spacing: 0.03em; text-transform: none; }
 .logos-strip__logo--mclaren:hover { color: #ff8000; }
 .logos-strip__logo--nio     { font-weight: 300; letter-spacing: 0.2em; }
 .logos-strip__logo--nio:hover { color: var(--accent-blue); }
 .logos-strip__logo--mapyr   { font-weight: 700; letter-spacing: 0.12em; }
+.logos-strip__logo--mapyr:hover   { color: #ffffff; }
 .logos-strip__logo--polarcus { font-weight: 400; letter-spacing: 0.06em; }
-.logos-strip__logo--polarcus:hover { color: #00bcd4; }
+.logos-strip__logo--polarcus:hover { color: #7ab648; }
 .logos-strip__logo--lukoil  { font-weight: 700; letter-spacing: 0.05em; }
 .logos-strip__logo--lukoil:hover  { color: #e53935; }
 
@@ -1327,23 +1350,32 @@ a.contact-card:hover {
 .footer {
   background: var(--bg-surface);
   border-top: 1px solid var(--border);
-  padding: 32px 0;
+  padding: 32px 0 28px;
 }
 .footer__inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
+  gap: 14px;
 }
-.footer__name {
-  font-size: 0.9rem;
-  font-weight: 600;
+.footer__logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: var(--text-primary);
+  transition: opacity var(--transition);
+}
+.footer__logo:hover { opacity: 0.7; }
+.footer__divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+  opacity: 0.5;
 }
 .footer__copy {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
+  letter-spacing: 0.03em;
 }
 
 /* ── SELECTION & SCROLLBAR ───────────────────────────────────── */

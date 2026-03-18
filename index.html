@@ -84,11 +84,16 @@
   <!-- Google Fonts: Inter + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Preload LCP hero image -->
+  <link rel="preload" as="image" href="photo.png" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <a href="#about" class="skip-link">Skip to content</a>
 
   <!-- ─── SCROLL PROGRESS TIMELINE ────────────────────────────── -->
   <div class="sp" id="sp" aria-hidden="true">
@@ -433,7 +438,7 @@
             </div>
             <h3 class="timeline__role" data-i18n-html="job4_role">Project Manager &amp; Senior Technical Expert</h3>
             <p class="timeline__company" data-i18n-html="job4_company">ACIS Information Technology &amp; Lukoil International Services &nbsp;·&nbsp; Dubai, UAE</p>
-            <p class="timeline__desc" data-i18n="job4_desc">At ACIS (2016–2019): Reported to CEO, managed a team of 20 experts and delivered 10 end-to-end IT projects for hospitality, government, and private sector clients including Rotana (35 hotels) and Movenpick. At Lukoil (2015–2016): VIP helpdesk and mobile systems engineer supporting 1,000+ users across UAE and abroad. Recipient of multiple letters of appreciation for outstanding performance and initiative.</p>
+            <p class="timeline__desc" data-i18n="job4_desc">At ACIS (2016–2019): Reported to CEO, managed a team of 20 experts and delivered 10 end-to-end IT projects for hospitality, government, and private sector clients including Rotana (35 hotels) and Mövenpick. At Lukoil (2015–2016): VIP helpdesk and mobile systems engineer supporting 1,000+ users across UAE and abroad. Recipient of multiple letters of appreciation for outstanding performance and initiative.</p>
             <div class="timeline__tags" data-i18n-tags="job4_tags">
               <span>Project Management</span><span>Hospitality IT</span><span>VIP Support</span><span>Infrastructure Deployment</span><span>Team of 20</span>
             </div>
@@ -597,7 +602,7 @@
             <div class="focus__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8l3 3 3-3 3 3"/></svg>
             </div>
-            <h3 class="focus__title" data-i18n="focus3_title">IT Operating Models for Greenfield Organizations</h3>
+            <h3 class="focus__title" data-i18n="focus3_title">IT Operating Models for Greenfield Organisations</h3>
             <p class="focus__desc" data-i18n="focus3_desc">Codifying the playbook for building IT functions from zero in new ventures and holding structures - governance, service design, vendor strategy, and team architecture that scale from day one.</p>
             <div class="focus__signal">
               <span class="focus__pulse"></span>
@@ -741,8 +746,9 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <span class="footer__name">Alexei Ivanov</span>
-        <span class="footer__copy" data-i18n-html="footer_copy">&copy; 2026 · Head of IT &amp; Digital · Abu Dhabi, UAE</span>
+        <a href="#hero" class="footer__logo">AI<span class="accent">.</span></a>
+        <div class="footer__divider"></div>
+        <span class="footer__copy" data-i18n-html="footer_copy">&copy; 2026 &nbsp;&middot;&nbsp; Head of IT &amp; Digital &nbsp;&middot;&nbsp; Abu Dhabi, UAE</span>
       </div>
     </div>
   </footer>

@@ -33,6 +33,14 @@ function initNav() {
     })
   );
 
+  /* close mobile menu on outside click */
+  document.addEventListener('click', e => {
+    if (!hamburger.classList.contains('open')) return;
+    if (e.target.closest('#mobileMenu') || e.target.closest('#hamburger')) return;
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+
   /* smooth scroll */
   $$('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
