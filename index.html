@@ -39,7 +39,7 @@
   <meta property="og:profile:last_name" content="Ivanov" />
   <meta property="og:title" content="Alexei Ivanov — Head of IT &amp; Digital | CYVN Holdings · Abu Dhabi" />
   <meta property="og:description" content="20+ years in enterprise IT. D365 F&amp;O ERP go-live · ~97% payment automation · 28% AI productivity gains · ICFR-aligned controls. Currently at CYVN Holdings (McLaren &amp; NIO ecosystem), reporting directly to the CFO." />
-  <meta property="og:image" content="https://aivanov.ai/og-preview.png" />
+  <meta property="og:image" content="https://aivanov.ai/og-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://aivanov.ai/" />
@@ -52,7 +52,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Alexei Ivanov — Head of IT &amp; Digital | CYVN Holdings · Abu Dhabi" />
   <meta name="twitter:description" content="20+ years in enterprise IT. D365 F&amp;O ERP · 97% payment automation · 28% AI gains · ICFR controls. CFO-facing tech executive at CYVN Holdings (McLaren &amp; NIO ecosystem)." />
-  <meta name="twitter:image" content="https://aivanov.ai/og-preview.png" />
+  <meta name="twitter:image" content="https://aivanov.ai/og-preview.jpg" />
 
   <meta name="theme-color" content="#090d16" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -73,6 +73,18 @@
     "areaServed": ["AE-DU", "AE-AZ"],
     "sameAs": ["https://www.linkedin.com/in/1alexeiivanov/", "https://t.me/alexeiivanov"],
     "worksFor": { "@type": "Organization", "name": "CYVN Holdings", "url": "https://www.cyvnholdings.com" },
+    "workLocation": {
+      "@type": "Place",
+      "name": "Yas Island, Abu Dhabi",
+      "address": { "@type": "PostalAddress", "addressLocality": "Abu Dhabi", "addressRegion": "Abu Dhabi", "addressCountry": "AE" },
+      "geo": { "@type": "GeoCoordinates", "latitude": 24.4672, "longitude": 54.6031 }
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "International University of Moldova",
+      "address": { "@type": "PostalAddress", "addressLocality": "Chișinău", "addressCountry": "MD" }
+    },
+    "knowsLanguage": ["en", "ru", "ro", "uk"],
     "knowsAbout": ["IT Leadership","Digital Transformation","ERP Implementation","Dynamics 365 Finance & Operations","Microsoft Azure","Cybersecurity","AI Adoption","Microsoft Copilot","ICFR Controls","ITIL","BCP / Disaster Recovery","IT Governance","C-Suite Advisory"],
     "hasCredential": [
       { "@type": "EducationalOccupationalCredential", "name": "ITIL Foundation" },
@@ -81,13 +93,35 @@
   }
   </script>
 
+  <!-- Structured Data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "Alexei Ivanov — Head of IT & Digital",
+    "url": "https://aivanov.ai/",
+    "inLanguage": ["en", "ru", "ar"],
+    "primaryImageOfPage": { "@type": "ImageObject", "url": "https://aivanov.ai/og-preview.jpg", "width": 1200, "height": 630 },
+    "about": { "@type": "Person", "name": "Alexei Ivanov" },
+    "mainEntity": { "@type": "Person", "name": "Alexei Ivanov" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aivanov.ai/" },
+        { "@type": "ListItem", "position": 2, "name": "CV", "item": "https://aivanov.ai/cv.html" }
+      ]
+    }
+  }
+  </script>
+
   <!-- Google Fonts: Inter + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- Preload LCP hero image -->
-  <link rel="preload" as="image" href="photo.png" />
+  <!-- Performance: preload LCP hero image (JPEG via <picture>) and translations -->
+  <link rel="preload" as="image" href="photo.jpg" type="image/jpeg" fetchpriority="high" />
+  <link rel="preload" as="script" href="translations.js" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -193,7 +227,10 @@
         </div>
 
         <div class="hero__photo">
-          <img src="photo.png" alt="Alexei Ivanov" />
+          <picture>
+            <source srcset="photo.jpg" type="image/jpeg" />
+            <img src="photo.png" alt="Alexei Ivanov, Head of IT &amp; Digital at CYVN Holdings" width="600" height="646" fetchpriority="high" decoding="async" />
+          </picture>
         </div>
       </div>
     </div>
@@ -326,9 +363,9 @@
             <div class="voice-card__ornament" aria-hidden="true">&ldquo;</div>
             <blockquote class="voice-card__text" data-i18n="voice1_text">Alexei is our Most Valued Player of the year who expertly delivered the ERP system with precision, passion and discipline!</blockquote>
             <div class="voice-card__author">
-              <div class="voice-card__avatar">BS</div>
+              <img class="voice-card__avatar voice-card__avatar--bernd" src="people/bernd.jpg" alt="Bernd Schwendtke" width="34" height="34" loading="lazy" decoding="async" />
               <div class="voice-card__info">
-                <span class="voice-card__name" data-i18n="voice1_name">Bernd Schwendtke</span>
+                <a class="voice-card__name" href="https://www.linkedin.com/in/bernd-schwendtke-91377a5/" target="_blank" rel="noopener" aria-label="Bernd Schwendtke on LinkedIn"><span data-i18n="voice1_name">Bernd Schwendtke</span><svg class="voice-card__li-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
                 <span class="voice-card__role" data-i18n-html="voice1_role">CFO &nbsp;&middot;&nbsp; CYVN Holdings</span>
               </div>
             </div>
@@ -338,9 +375,9 @@
             <div class="voice-card__ornament" aria-hidden="true">&ldquo;</div>
             <blockquote class="voice-card__text" data-i18n="voice2_text">Alexei led our full digital transformation — from cybersecurity to ERP migration — with methodology and persistence. Essential to making MAPYR a leading, innovative partner.</blockquote>
             <div class="voice-card__author">
-              <div class="voice-card__avatar voice-card__avatar--gold">PYR</div>
+              <img class="voice-card__avatar voice-card__avatar--gold" src="people/pierre.jpg" alt="Pierre-Yves Renoir" width="34" height="34" loading="lazy" decoding="async" />
               <div class="voice-card__info">
-                <span class="voice-card__name" data-i18n="voice2_name">Pierre-Yves Renoir</span>
+                <a class="voice-card__name" href="https://ae.linkedin.com/in/pierre-yves-renoir-701351b" target="_blank" rel="noopener" aria-label="Pierre-Yves Renoir on LinkedIn"><span data-i18n="voice2_name">Pierre-Yves Renoir</span><svg class="voice-card__li-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
                 <span class="voice-card__role" data-i18n-html="voice2_role">CEO &amp; Founder &nbsp;&middot;&nbsp; MAPYR</span>
               </div>
             </div>
@@ -350,9 +387,9 @@
             <div class="voice-card__ornament" aria-hidden="true">&ldquo;</div>
             <blockquote class="voice-card__text" data-i18n="voice3_text">Alexei earned top marks across every team he worked with - including our offshore crews, which is no easy feat. Technically strong, professionally sharp, and genuinely liked by everyone.</blockquote>
             <div class="voice-card__author">
-              <div class="voice-card__avatar">ER</div>
+              <img class="voice-card__avatar" src="people/erik.jpg" alt="Erik Ruis" width="34" height="34" loading="lazy" decoding="async" />
               <div class="voice-card__info">
-                <span class="voice-card__name" data-i18n="voice3_name">Erik Ruis</span>
+                <a class="voice-card__name" href="https://ae.linkedin.com/in/erikruis" target="_blank" rel="noopener" aria-label="Erik Ruis on LinkedIn"><span data-i18n="voice3_name">Erik Ruis</span><svg class="voice-card__li-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
                 <span class="voice-card__role" data-i18n-html="voice3_role">Head of IT &nbsp;&middot;&nbsp; Polarcus</span>
               </div>
             </div>
@@ -463,12 +500,12 @@
         <div class="edu__body">
           <div class="edu__header-row">
             <div class="edu__meta">
-              <span class="edu__period" data-i18n="edu_period">[Year – Year]</span>
+              <span class="edu__period" data-i18n="edu_period">2007 – 2013</span>
               <span class="edu__badge" data-i18n="edu_badge">Master's Degree</span>
             </div>
             <h3 class="edu__degree" data-i18n="edu_degree">Information Technologies</h3>
             <p class="edu__spec" data-i18n="edu_spec">Specialisation: Data Transmission and Processing</p>
-            <p class="edu__institution" data-i18n="edu_institution">[University · City]</p>
+            <p class="edu__institution" data-i18n="edu_institution">International University of Moldova</p>
           </div>
           <p class="edu__desc" data-i18n="edu_desc">Advanced postgraduate studies covering network architectures, data transmission protocols, signal processing, and distributed systems — with a focus on high-throughput data environments and enterprise communication infrastructure.</p>
         </div>
@@ -762,7 +799,10 @@
 
   <!-- ─── PHOTO LIGHTBOX ──────────────────────────────────────── -->
   <div class="photo-modal" id="photoModal" role="dialog" aria-modal="true" aria-label="Photo of Alexei Ivanov">
-    <img src="photo.png" alt="Alexei Ivanov" class="photo-modal__img" />
+    <picture>
+      <source srcset="photo.jpg" type="image/jpeg" />
+      <img src="photo.png" alt="Alexei Ivanov" class="photo-modal__img" />
+    </picture>
   </div>
 
   <script src="translations.js"></script>

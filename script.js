@@ -642,9 +642,10 @@ function applyLang(lang) {
   });
 
   /* HTML content (contains tags like <strong>, <br>, &amp;) */
+  const year = new Date().getFullYear();
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const key = el.getAttribute('data-i18n-html');
-    if (T[key] !== undefined) el.innerHTML = T[key];
+    if (T[key] !== undefined) el.innerHTML = T[key].replace(/\{\{YEAR\}\}/g, year);
   });
 
   /* re-apply metric bar widths (they may have been re-injected) */

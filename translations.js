@@ -214,7 +214,7 @@ en: {
   contact_loc_value:  'Abu Dhabi, UAE',
 
   /* FOOTER */
-  footer_copy: '&copy; 2026 &nbsp;·&nbsp; Head of IT &amp; Digital &nbsp;·&nbsp; Abu Dhabi, UAE',
+  footer_copy: '&copy; {{YEAR}} &nbsp;·&nbsp; Head of IT &amp; Digital &nbsp;·&nbsp; Abu Dhabi, UAE',
 },
 
 /* ──────────────────────────────────────────────────────────────
@@ -427,7 +427,7 @@ ru: {
   contact_loc_value:  'Абу-Даби, ОАЭ',
 
   /* FOOTER */
-  footer_copy: '&copy; 2026 &nbsp;·&nbsp; Руководитель ИТ и Цифровых технологий &nbsp;·&nbsp; Абу-Даби, ОАЭ',
+  footer_copy: '&copy; {{YEAR}} &nbsp;·&nbsp; Руководитель ИТ и Цифровых технологий &nbsp;·&nbsp; Абу-Даби, ОАЭ',
 },
 
 /* ──────────────────────────────────────────────────────────────
@@ -643,7 +643,7 @@ ar: {
   contact_loc_value:  'أبوظبي، الإمارات',
 
   /* FOOTER */
-  footer_copy: '&copy; 2026 &nbsp;·&nbsp; رئيس تقنية المعلومات والرقمنة &nbsp;·&nbsp; أبوظبي، الإمارات',
+  footer_copy: '&copy; {{YEAR}} &nbsp;·&nbsp; رئيس تقنية المعلومات والرقمنة &nbsp;·&nbsp; أبوظبي، الإمارات',
 },
 
 }; /* end TRANS */

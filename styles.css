@@ -831,6 +831,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .voice-card--gold:hover .voice-card__avatar--gold {
   box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
 }
+img.voice-card__avatar {
+  object-fit: cover;
+  object-position: center 30%;
+  background: none;
+  font-size: 0;
+}
+img.voice-card__avatar--bernd { object-position: center 25%; }
 .voice-card__info {
   display: flex;
   flex-direction: column;
@@ -842,7 +849,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: color var(--transition);
 }
+a.voice-card__name:hover { color: var(--accent-blue); }
+.voice-card--gold a.voice-card__name:hover { color: var(--accent-gold); }
+.voice-card__li-icon {
+  width: 11px;
+  height: 11px;
+  opacity: 0;
+  color: var(--accent-blue);
+  transition: opacity var(--transition);
+  flex-shrink: 0;
+}
+.voice-card--gold .voice-card__li-icon { color: var(--accent-gold); }
+a.voice-card__name:hover .voice-card__li-icon,
+a.voice-card__name:focus-visible .voice-card__li-icon { opacity: 0.85; }
 .voice-card__role {
   font-size: 0.72rem;
   color: var(--text-muted);
